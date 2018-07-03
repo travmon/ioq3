@@ -89,15 +89,15 @@ endif
 export CROSS_COMPILING
 
 ifndef VERSION
-VERSION=m9
+VERSION=
 endif
 
 ifndef CLIENTBIN
-CLIENTBIN=urbanterror-m9
+CLIENTBIN=UrT-m9-RSM
 endif
 
 ifndef SERVERBIN
-SERVERBIN=urbanterror-server-m9
+SERVERBIN=UrT-server-m9-RSM
 endif
 
 ifndef COPYDIR
