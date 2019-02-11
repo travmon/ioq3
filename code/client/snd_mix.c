@@ -150,16 +150,18 @@ void S_TransferPaintBuffer(int endtime)
 {
 	int 	out_idx;
 	int 	count;
+	int 	out_mask;
 	int 	*p;
 	int 	step;
 	int		val;
-	int		i;
 	unsigned long *pbuf;
 
 	pbuf = (unsigned long *)dma.buffer;
 
 
 	if ( s_testsound->integer ) {
+		int		i;
+
 		// write a fixed sine wave
 		count = (endtime - s_paintedtime);
 		for (i=0 ; i<count ; i++)
@@ -175,73 +177,53 @@ void S_TransferPaintBuffer(int endtime)
 	{	// general case
 		p = (int *) paintbuffer;
 		count = (endtime - s_paintedtime) * dma.channels;
-		out_idx = s_paintedtime * dma.channels % dma.samples;
-		step = 3 - MIN( dma.channels, 2 );
+		out_mask = dma.samples - 1; 
+		out_idx = s_paintedtime * dma.channels & out_mask;
+		step = 3 - dma.channels;
 
 		if ((dma.isfloat) && (dma.samplebits == 32))
 		{
 			float *out = (float *) pbuf;
-			for (i=0 ; i<count ; i++)
+			while (count--)
 			{
-				if ( i % dma.channels >= 2 )
-				{
-					val = 0;
-				}
-				else
-				{
-					val = *p >> 8;
-					p+= step;
-				}
+				val = *p >> 8;
+				p+= step;
 				if (val > 0x7fff)
 					val = 0x7fff;
 				else if (val < -32767)  /* clamp to one less than max to make division max out at -1.0f. */
 					val = -32767;
 				out[out_idx] = ((float) val) / 32767.0f;
-				out_idx = (out_idx + 1) % dma.samples;
+				out_idx = (out_idx + 1) & out_mask;
 			}
 		}
 		else if (dma.samplebits == 16)
 		{
 			short *out = (short *) pbuf;
-			for (i=0 ; i<count ; i++)
+			while (count--)
 			{
-				if ( i % dma.channels >= 2 )
-				{
-					val = 0;
-				}
-				else
-				{
-					val = *p >> 8;
-					p+= step;
-				}
+				val = *p >> 8;
+				p+= step;
 				if (val > 0x7fff)
 					val = 0x7fff;
 				else if (val < -32768)
 					val = -32768;
 				out[out_idx] = val;
-				out_idx = (out_idx + 1) % dma.samples;
+				out_idx = (out_idx + 1) & out_mask;
 			}
 		}
 		else if (dma.samplebits == 8)
 		{
 			unsigned char *out = (unsigned char *) pbuf;
-			for (i=0 ; i<count ; i++)
+			while (count--)
 			{
-				if ( i % dma.channels >= 2 )
-				{
-					val = 0;
-				}
-				else
-				{
-					val = *p >> 8;
-					p+= step;
-				}
+				val = *p >> 8;
+				p+= step;
 				if (val > 0x7fff)
 					val = 0x7fff;
 				else if (val < -32768)
 					val = -32768;
 				out[out_idx] = (val>>8) + 128;
-				out_idx = (out_idx + 1) % dma.samples;
+				out_idx = (out_idx + 1) & out_mask;
 			}
 		}
 	}
