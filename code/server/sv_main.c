@@ -70,6 +70,11 @@ cvar_t	*sv_autoRecordDemo;
 cvar_t  *sv_tellprefix;
 cvar_t  *sv_sayprefix;
 
+cvar_t  *sv_allowSuicide;
+cvar_t  *sv_allowItemdrop;
+cvar_t  *sv_allowWeapdrop;
+cvar_t  *sv_allowTell;
+
 #ifdef USE_AUTH
 cvar_t	*sv_authServerIP;
 cvar_t	*sv_auth_engine;

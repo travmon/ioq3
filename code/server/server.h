@@ -354,6 +354,11 @@ extern  cvar_t  *sv_autoRecordDemo;
 extern  cvar_t  *sv_sayprefix;
 extern  cvar_t  *sv_tellprefix;
 
+extern  cvar_t  *sv_allowSuicide;
+extern  cvar_t  *sv_allowItemdrop;
+extern  cvar_t  *sv_allowWeapdrop;
+extern  cvar_t  *sv_allowTell;
+
 #ifdef USE_AUTH
 extern	cvar_t	*sv_authServerIP;
 extern	cvar_t	*sv_auth_engine;
