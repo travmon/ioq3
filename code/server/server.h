@@ -354,6 +354,8 @@ extern  cvar_t  *sv_autoRecordDemo;
 extern  cvar_t  *sv_sayprefix;
 extern  cvar_t  *sv_tellprefix;
 
+extern  cvar_t  *sv_allowSuicide;	// optional cvar to disable /kill on server
+
 #ifdef USE_AUTH
 extern	cvar_t	*sv_authServerIP;
 extern	cvar_t	*sv_auth_engine;

@@ -58,7 +58,7 @@ cvar_t	*sv_extraPure;
 cvar_t	*sv_extraPaks;
 cvar_t	*sv_floodProtect;
 cvar_t	*sv_newpurelist;
-cvar_t	*sv_lanForceRate; // dedicated 1 (LAN) server forces local client rates to 99999 (bug #491)
+cvar_t	*sv_lanForceRate; 	// dedicated 1 (LAN) server forces local client rates to 99999 (bug #491)
 cvar_t	*sv_banFile;
 cvar_t	*sv_clientsPerIp;
 
@@ -69,6 +69,8 @@ cvar_t	*sv_demofolder;			//@Barbatos - the name of the folder that contains serv
 cvar_t	*sv_autoRecordDemo;
 cvar_t  *sv_tellprefix;
 cvar_t  *sv_sayprefix;
+
+cvar_t  *sv_allowSuicide;		// optional cvar to disable /kill on server
 
 #ifdef USE_AUTH
 cvar_t	*sv_authServerIP;
