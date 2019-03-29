@@ -222,6 +222,6 @@ exec server.cfg // Start server with the specified config file
 - [x] Send UrT specific server infostring
 - [x] Partial matching of map and players
 - [x] Correct the problem of ping computing from the server. [Patch by karnute](https://github.com/mickael9/ioq3/pull/29/commits)
-- [x] `sv_allowSuicide` cvar
+- [x] `sv_allowSuicide <0|1>` - Enables suicide via `/kill`. Default is `1` [Clearskies](https://github.com/anthonynguyen)
 
 This list is likely incomplete. Please let me know if I forgot anything!
