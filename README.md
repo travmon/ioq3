@@ -27,3 +27,4 @@ These are the features that are specific to this build.
 * [clearskies](https://github.com/anthonynguyen)
 * [danielepantaleone](https://github.com/danielepantaleone)
 * [ioquake](https://github.com/ioquake/ioq3)
+* [BidyBiddle](https://github.com/BidyBiddle) For Hope and Dreams
