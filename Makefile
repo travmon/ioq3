@@ -93,11 +93,11 @@ VERSION=
 endif
 
 ifndef CLIENTBIN
-CLIENTBIN=UrT-m9-RSM
+CLIENTBIN=UrT-m9-RSM-alpha
 endif
 
 ifndef SERVERBIN
-SERVERBIN=UrT-server-m9-RSM
+SERVERBIN=UrT-server-m9-RSM-alpha
 endif
 
 ifndef COPYDIR
@@ -153,19 +153,19 @@ ifndef USE_CURL_DLOPEN
 endif
 
 ifndef USE_CODEC_VORBIS
-USE_CODEC_VORBIS=1
+USE_CODEC_VORBIS=0
 endif
 
 ifndef USE_CODEC_OPUS
-USE_CODEC_OPUS=1
+USE_CODEC_OPUS=0
 endif
 
 ifndef USE_MUMBLE
-USE_MUMBLE=1
+USE_MUMBLE=0
 endif
 
 ifndef USE_VOIP
-USE_VOIP=1
+USE_VOIP=0
 endif
 
 ifndef USE_FREETYPE
