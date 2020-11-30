@@ -68,7 +68,7 @@ void GLimp_InitGamma(void);
 void GLimp_ShutdownGamma(void);
 #endif
 
-#define GLE(ret, name, ...) name##proc * qgl##name;
+#define GLE(ret, name, ...) name##proc * qgl##name = NULL;
 QGL_1_1_PROCS;
 QGL_1_1_FIXED_FUNCTION_PROCS;
 QGL_DESKTOP_1_1_PROCS;
